@@ -9,6 +9,7 @@ body{
     background-color: #f98c96;
     background-size: cover;
     background-position: center;
+    position: relative;
 }
 .container{
     height: 100vh;
@@ -63,11 +64,14 @@ body{
     font-size: 50px;
     color: #c70000;
     line-height: 60px;
-    /* font-size: 400; */
+    font-weight: 800;
+    
     margin-top: 20px;
 }
-/* h1 span{
-    /* color: aqua; */
+p span{
+    color: #08f100 !important;
+    font-family: "Poppins", sans-serif;
+}
 .btns{
     padding-top: 20px;
     /* display: flex; */
@@ -96,9 +100,6 @@ body{
 #yes:hover{
     background-color: #f10000;
     color: #ffffff;
-}
-#no:hover{
-    background-color: #ffffff;
 }
 .hide{
     display: none;
@@ -132,6 +133,13 @@ body{
     left: 0;
     bottom: 0;
 }
+.butterfly{
+    position: absolute;
+    width: 400px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
 .branches{
     position: absolute;
     width: 450px;
@@ -162,6 +170,9 @@ font-family: 'Carter One', system-ui;
     .branches{
         width: 150px;
     }
+    .butterfly{
+        width: 150px;
+    }
     .wrapper p{
         font-size: 35px !important;
         line-height: 40px;
@@ -187,5 +198,11 @@ font-family: 'Carter One', system-ui;
     .copy{
         bottom: 5px;
         font-size: 11px;
+    }
+    .m2{
+        position: absolute;
+        top: -40px;
+        right: 5px;
+        width: 85px !important;
     }
 }
