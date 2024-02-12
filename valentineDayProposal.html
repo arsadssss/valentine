@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Val</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img class="love-tree" src="images/love-tree.png" alt="">
+        <img class="branches" src="images/branches.png" alt="">
+        <div class="main">
+            <div class="qoute">
+                <img class="qbg" src="images/q-bg.png" alt="">
+                <p style="font-style: italic;">"I am who I am because of you. You are every reason, every hope, and every dream I’ve ever had."</p>
+            </div>
+            <div class="wrapper">
+                <img src="images/rose.png" alt="">
+                <p id="afterText"><span id="name"></span> Will you be my valentine?</p>
+                <div class="btns">
+                    <button id="yes">YES</button>
+                    <button id="no">NO</button>
+                </div>
+                <img class="hide" src="images/heart.png" alt="">
+                <img class="m1" src="images/Little-heart.png" alt="">
+                <img class="m2" src="images/hearts.png" alt="">
+                <img class="m3" src="images/flower.png" alt="">
+            </div>
+        </div>
+        
+        <p class="copy">Follow me on Instagram - im_4r5h</p>
+    </div>
+
+    <script>
+        let personName = prompt("Enter Your Name Please");
+        document.querySelector("#name").innerHTML = personName;
+        let hide = document.querySelector(".hide");
+        let wrapper = document.querySelector(".wrapper");
+        let hide1 = document.querySelector(".btns");
+        
+        let yes = document.querySelector("#yes");
+        yes.addEventListener("click", function(){
+            document.querySelector("#afterText").innerHTML = "Thank You So Much &hearts;&hearts;&hearts;<br>" + personName;
+            hide.classList.add("block");
+            hide1.classList.add("btns-h");
+            // hide.classList.remove("btns");
+        })
+
+        let no = document.querySelector("#no");
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const noRect = no.getBoundingClientRect();
+        no.addEventListener("mouseover", ()=>{
+            const i = Math.floor(Math.random() * (wrapperRect.width - noRect.width)) + 1;
+            const j = Math.floor(Math.random() * (wrapperRect.height - noRect.height)) + 1;
+
+            no.style.left = i + 'px';
+            no.style.top = j + 'px';
+        })
+
+    </script>
+</body>
+</html>
