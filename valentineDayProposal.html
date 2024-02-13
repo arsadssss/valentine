@@ -17,9 +17,14 @@
     <div class="container">
         
         <div class="main">
+            
             <div class="qoute">
                 <img class="qbg" src="images/q-bg.png" alt="">
-                <p style="font-style: italic;">"I am who I am because of you. You are every reason, every hope, and every dream I’ve ever had."</p>
+                <p id="qouteP" style="font-style: italic;">"I am who I am because of you. You are every reason, every hope, and every dream I’ve ever had."</p>
+                <div class="userInpt">
+                    <input type="text" name="" placeholder="Enter Name Here" id="inpt">
+                    <button id="submit">Submit</button>
+                </div>
             </div>
             <div class="wrapper">
                 <img src="images/rose.png" alt="">
@@ -32,24 +37,66 @@
                 <img class="m1" src="images/Little-heart.png" alt="">
                 <img class="m2" src="images/hearts.png" alt="">
                 <img class="m3" src="images/flower.png" alt="">
+                <button id="share">Share</button>
             </div>
         </div>
         
         
     </div>
     <p class="copy">Follow me on Instagram - im_4r5h</p>
+    
     <script>
-        let personName = prompt("Enter Your Name Please");
-        document.querySelector("#name").innerHTML = personName;
+        // let personName = prompt("Enter Your Name Please");
+        let personName = document.querySelector("#inpt");
+        let userInpt = document.querySelector(".userInpt");
+        let qouteP = document.querySelector("#qouteP");
+        let btnSubmit = document.querySelector("#submit");
+
+        const link = encodeURI(window.location.href);
+        const msg = encodeURIComponent("Hi, " + personName.value + " I found a beautiful message for you!!");
+        const title = encodeURIComponent(document.querySelector('title').textContent)
+        
+        const share = document.querySelector("#share");
+        
+        
+        share.addEventListener('click', event => {
+			if (navigator.share) {
+				navigator.share({
+
+					title: "Happy Valentine Day",
+					url: link,
+                    text: msg
+				}).then(() => {
+					console.log('Thanks for sharing!');
+				}).catch(err => {
+					console.log(
+					"Error while using Web share API:");
+					console.log(err);
+				});
+			} else {
+				alert("Browser doesn't support this API !");
+			}
+		})
+        
+        console.log([link, msg, title]);
+
+        btnSubmit.addEventListener("click", function(){
+            let person = personName.value;
+            document.querySelector("#name").innerHTML = person;
+            qouteP.style.display = "block";
+            userInpt.classList.add("btns-h");
+        })
+        
         let hide = document.querySelector(".hide");
         let wrapper = document.querySelector(".wrapper");
         let hide1 = document.querySelector(".btns");
         
         let yes = document.querySelector("#yes");
         yes.addEventListener("click", function(){
-            document.querySelector("#afterText").innerHTML = "Thank You So Much &hearts;&hearts;&hearts;<br>" + personName;
+            document.querySelector("#afterText").innerHTML = "Thank You So Much &hearts;&hearts;&hearts;<br>" + personName.value;
             hide.classList.add("block");
             hide1.classList.add("btns-h");
+            share.style.display = "block";
             // hide.classList.remove("btns");
         })
 
