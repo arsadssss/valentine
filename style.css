@@ -223,7 +223,7 @@ font-family: 'Carter One', system-ui;
     }
     .butterfly{
         width: 150px;
-        bottom: 0px;
+        bottom: 15px;
         right: 0px;
     }
     .wrapper p{
