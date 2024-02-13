@@ -136,8 +136,8 @@ p span{
 .butterfly{
     position: absolute;
     width: 400px;
-    right: 0;
-    bottom: 0;
+    right: 200px;
+    bottom: 35px;
     z-index: -1;
 }
 .branches{
@@ -223,6 +223,8 @@ font-family: 'Carter One', system-ui;
     }
     .butterfly{
         width: 150px;
+        bottom: 0px;
+        right: 0px;
     }
     .wrapper p{
         font-size: 35px !important;
