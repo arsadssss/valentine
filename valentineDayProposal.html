@@ -53,6 +53,7 @@
         let btnSubmit = document.querySelector("#submit");
 
         const link = encodeURI(window.location.href);
+        const msg = encodeURIComponent();
         const title = encodeURIComponent(document.querySelector('title').textContent)
         
         const share = document.querySelector("#share");
@@ -64,7 +65,7 @@
 
 					title: "Happy Valentine Day",
 					url: link,
-                                        text:"Hi, " + personName.value + " I found a beautiful message for you!!"
+                    text: "Hi, " + personName.value + " I found a beautiful message for you!!"
 				}).then(() => {
 					console.log('Thanks for sharing!');
 				}).catch(err => {
