@@ -70,7 +70,7 @@ body{
 }
 p span{
     color: #08f100 !important;
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
 }
 .btns{
     padding-top: 20px;
@@ -161,6 +161,57 @@ font-family: 'Carter One', system-ui;
     position: absolute;
     z-index: 0;
 }
+#qouteP{
+    display: none;
+}
+.userInpt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+}
+#inpt::placeholder{
+    color: #080808;
+    letter-spacing: 0.5px;
+}
+.userInpt input{
+    border: 1px solid #ff173e;
+    outline: 0;
+    /* width: 100%; */
+    width: 350px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background-color: #ffd0d5;
+
+}
+.userInpt button{
+    border: 1px solid #ff173e;
+    outline: 0;
+    margin-top: 10px;
+    /* box-shadow: 3px 3px 10px #ff1c1c; */
+    padding: 3px 30px;
+    border-radius: 20px;
+    background-color: #ffd0d5;
+    color: #000000;
+    cursor: pointer;
+}
+#share{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: 0;
+    outline: 0;
+    background-color: #f19100;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: none;
+}
+
+
+
+
 @media only screen and (max-width: 600px) {
     .love-tree{
         width: 150px;
@@ -202,7 +253,10 @@ font-family: 'Carter One', system-ui;
     .m2{
         position: absolute;
         top: -40px;
-        right: 5px;
+        right: -10px;
         width: 85px !important;
+    }
+    .userInpt input{
+        width: 100%;
     }
 }
