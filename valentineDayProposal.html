@@ -9,8 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+    </script>
 </head>
-<body>
+<body onload = "autoClick();">
     <img class="love-tree" src="images/love-tree.png" alt="">
     <img class="branches" src="images/branches.png" alt="">
     <img class="butterfly" src="images/butterfly.png" alt="">
@@ -37,8 +41,9 @@
                 <img class="m1" src="images/Little-heart.png" alt="">
                 <img class="m2" src="images/hearts.png" alt="">
                 <img class="m3" src="images/flower.png" alt="">
-                <button id="share">Share</button>
             </div>
+            <button id="share">Share</button>
+            <a id="download"><img src="images/downloading.png"></a>
         </div>
         
         
@@ -57,6 +62,7 @@
         const title = encodeURIComponent(document.querySelector('title').textContent)
         
         const share = document.querySelector("#share");
+        const download = document.querySelector("#download");
         
         
         share.addEventListener('click', event => {
@@ -97,6 +103,7 @@
             hide.classList.add("block");
             hide1.classList.add("btns-h");
             share.style.display = "block";
+            download.style.display = "block";
             // hide.classList.remove("btns");
         })
 
@@ -110,6 +117,26 @@
             no.style.left = i + 'px';
             no.style.top = j + 'px';
         })
+
+        function autoClick(){
+        $("#download").click();
+      }
+
+      $(document).ready(function(){
+        var element = $(".wrapper");
+
+        $("#download").on('click', function(){
+
+          html2canvas(element, {
+            onrendered: function(canvas) {
+              var imageData = canvas.toDataURL("image/jpg");
+              var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+              $("#download").attr("download", "valentine.jpg").attr("href", newData);
+            }
+          });
+
+        });
+      });
 
     </script>
 </body>
